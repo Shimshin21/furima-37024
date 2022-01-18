@@ -3,6 +3,9 @@
 
 # DB 設計
 
+
+
+
 ## users table
 | Column                | Type                | Options                        |
 |-----------------------|---------------------|--------------------------------|
@@ -22,6 +25,9 @@
 * has_one :shipping address
 
 
+
+
+
 ## items table
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
@@ -37,7 +43,6 @@
 | shipping_days      | string              | null: false                    |
 | shipping address   | references          | null: false, foreign_key: true |
 
-
 ### Association
 * has_one    :buyer
 * belongs_to :user
@@ -49,6 +54,10 @@
 * has_one :shipping address
 
 # gemファイルに  gem 'active_hash' と入力する
+
+
+
+
 
 
 ## buyer table
@@ -71,16 +80,27 @@
 * has_one :shipping address
 
 
+
+
+
 ## shipping address table
 | Column              | Type              | Options                        |
 |---------------------|-------------------|--------------------------------|
 | users               | references        | null: false, foreign_key: true |
 | items               | references        | null: false, foreign_key: true |
 | buyer               | references        | null: false, foreign_key: true |
+
 ### Association
 * belongs_to : buyer
 * belongs_to : items
 * belongs_to : users
+
+
+
+
+
+
+
 
 
 
