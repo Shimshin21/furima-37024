@@ -3,9 +3,6 @@
 
 # DB 設計
 
-
-
-
 ## users table
 | Column                | Type                | Options                        |
 |-----------------------|---------------------|--------------------------------|
@@ -17,31 +14,24 @@
 | family_name_kana      | string              | null: false                    |
 | first_name_kana       | string              | null: false                    |
 | birth                 | date                | null: false                    |
-| shipping address      | references          | null: false, foreign_key: true |
 
 ### Association
 * has_many :items
 * has_many :buyer
 * has_one :shipping address
 
-
-
-
-
 ## items table
 | Column             | Type                | Options                        |
-|--------------------|---------------------|--------------------------------|
-| name               | string              | null: false                    |
-| description        | text                | null: false                    |
-| photo              | text                | null: false                    |
-| price              | integer             | null: false                    |
-| user               | references          | null: false, foreign_key: true |
-| category           | references          | null: false, foreign_key: true |
-| item_condition     | string              | null: false                    |
-| shipping_cost      | string              | null: false                    |
-| shipping_place     | string              | null: false                    |
-| shipping_days      | string              | null: false                    |
-| shipping address   | references          | null: false, foreign_key: true |
+|-----------------------|------------------|--------------------------------|
+| name                  | string           | null: false                    |
+| description           | text             | null: false                    |
+| price                 | integer          | null: false                    |
+| user                  | references       | null: false, foreign_key: true |
+| category_id           | references       | null: false,                   |
+| item_condition_id     | integer          | null: false                    |
+| shipping_cost_id      | integer          | null: false                    |
+| shipping_place_id     | integer          | null: false                    |
+| shipping_days_id      | integer          | null: false                    |
 
 ### Association
 * has_one    :buyer
@@ -56,31 +46,19 @@
 # gemファイルに  gem 'active_hash' と入力する
 
 
-
-
-
-
 ## buyer table
 | Column             | Type              | Options                          |
 |--------------------|-------------------|----------------------------------|
-| family_name        | string            | null: false                      |
-| first_name         | string            | null: false                      |
-| family_name_kana   | string            | null: false                      |
-| first_name_kana    | string            | null: false                      |
 | post_code          | string            | null: false                      |
-| prefecture         | string            | null: false                      |
+| prefecture_id      | string            | null: false                      |
 | city               | string            | null: false                      |
 | address            | string            | null: false                      |
-| building_name      | string            | null: false                      |
+| building_name      | string            |                                  |
 | tel_number         | string            | null: false                      |
-| user               | string            | null: false, foreign_key: true   |
 | shipping address   | references        | null: false, foreign_key: true   |
 
 ### Association
 * has_one :shipping address
-
-
-
 
 
 ## shipping address table
@@ -88,16 +66,10 @@
 |---------------------|-------------------|--------------------------------|
 | users               | references        | null: false, foreign_key: true |
 | items               | references        | null: false, foreign_key: true |
-| buyer               | references        | null: false, foreign_key: true |
 
 ### Association
-* belongs_to : buyer
-* belongs_to : items
-* belongs_to : users
-
-
-
-
+* belongs_to : item
+* belongs_to : user
 
 
 
