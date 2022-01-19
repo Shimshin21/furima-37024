@@ -29,7 +29,7 @@
 | category_id           | integer          | null: false,                   |
 | item_condition_id     | integer          | null: false                    |
 | shipping_cost_id      | integer          | null: false                    |
-| prefecture_id     | integer          | null: false                    |
+| prefecture_id         | integer          | null: false                    |
 | shipping_days_id      | integer          | null: false                    |
 
 ### Association
@@ -60,19 +60,15 @@
 
 
 ## shipping addresses table
-| Column              | Type              | Options                        |
-|---------------------|-------------------|--------------------------------|
-| users               | references        | null: false, foreign_key: true |
-| items               | references        | null: false, foreign_key: true |
-| buyer               | references        | null: false                    |
-
+| Column             | Type              | Options                        |
+|--------------------|-------------------|--------------------------------|
+| user               | references        | null: false, foreign_key: true |
+| item               | references        | null: false, foreign_key: true |
 
 ### Association
 * belongs_to : item
 * belongs_to : user
 * has_one    : buyer
-
-
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
