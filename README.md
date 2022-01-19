@@ -18,7 +18,6 @@
 ### Association
 * has_many :items
 * has_many :buyer
-* has_one :shipping address
 
 ## items table
 | Column             | Type                | Options                        |
@@ -27,7 +26,7 @@
 | description           | text             | null: false                    |
 | price                 | integer          | null: false                    |
 | user                  | references       | null: false, foreign_key: true |
-| category_id           | references       | null: false,                   |
+| category_id           | integer          | null: false,                   |
 | item_condition_id     | integer          | null: false                    |
 | shipping_cost_id      | integer          | null: false                    |
 | shipping_place_id     | integer          | null: false                    |
@@ -41,7 +40,6 @@
 * belongs_to_active_hash :shipping_cost
 * belongs_to_active_hash :prefecture
 * belongs_to_active_hash :shipping_days
-* has_one :shipping address
 
 # gemファイルに  gem 'active_hash' と入力する
 
@@ -50,7 +48,7 @@
 | Column             | Type              | Options                          |
 |--------------------|-------------------|----------------------------------|
 | post_code          | string            | null: false                      |
-| prefecture_id      | string            | null: false                      |
+| prefecture_id      | integer           | null: false                      |
 | city               | string            | null: false                      |
 | address            | string            | null: false                      |
 | building_name      | string            |                                  |
@@ -58,7 +56,7 @@
 | shipping address   | references        | null: false, foreign_key: true   |
 
 ### Association
-* has_one :shipping address
+* belongs_to :shipping_address
 
 
 ## shipping address table
@@ -66,14 +64,13 @@
 |---------------------|-------------------|--------------------------------|
 | users               | references        | null: false, foreign_key: true |
 | items               | references        | null: false, foreign_key: true |
+| buyer               | references        | null: false, foreign_key: true |
+
 
 ### Association
 * belongs_to : item
 * belongs_to : user
-
-
-
-
+* belongs_to : buyer
 
 
 
