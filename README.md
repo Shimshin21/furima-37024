@@ -17,7 +17,7 @@
 
 ### Association
 * has_many :items
-* has_many :buyer
+* has_many :buyers
 
 ## items table
 | Column             | Type                | Options                        |
@@ -29,7 +29,7 @@
 | category_id           | integer          | null: false,                   |
 | item_condition_id     | integer          | null: false                    |
 | shipping_cost_id      | integer          | null: false                    |
-| shipping_place_id     | integer          | null: false                    |
+| prefecture_id     | integer          | null: false                    |
 | shipping_days_id      | integer          | null: false                    |
 
 ### Association
@@ -44,7 +44,7 @@
 # gemファイルに  gem 'active_hash' と入力する
 
 
-## buyer table
+## buyers table
 | Column             | Type              | Options                          |
 |--------------------|-------------------|----------------------------------|
 | post_code          | string            | null: false                      |
@@ -59,18 +59,18 @@
 * belongs_to :shipping_address
 
 
-## shipping address table
+## shipping addresses table
 | Column              | Type              | Options                        |
 |---------------------|-------------------|--------------------------------|
 | users               | references        | null: false, foreign_key: true |
 | items               | references        | null: false, foreign_key: true |
-| buyer               | references        | null: false, foreign_key: true |
+| buyer               | references        | null: false                    |
 
 
 ### Association
 * belongs_to : item
 * belongs_to : user
-* belongs_to : buyer
+* has_one    : buyer
 
 
 
