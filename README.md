@@ -1,3 +1,4 @@
+
 # README
 
 # DB 設計
@@ -17,8 +18,6 @@
 ### Association
 * has_many :items
 * has_many :buyers
-
-
 
 ## items table
 | Column             | Type                | Options                        |
@@ -45,7 +44,6 @@
 # gemファイルに  gem 'active_hash' と入力する
 
 
-
 ## buyers table
 | Column             | Type              | Options                          |
 |--------------------|-------------------|----------------------------------|
@@ -61,7 +59,6 @@
 * belongs_to :shipping_address
 
 
-
 ## shipping addresses table
 | Column             | Type              | Options                        |
 |--------------------|-------------------|--------------------------------|
@@ -72,11 +69,6 @@
 * belongs_to : item
 * belongs_to : user
 * has_one    : buyer
-
-
-
-
-
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
