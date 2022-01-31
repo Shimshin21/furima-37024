@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   has_one    :buyer
   belongs_to :user
+  has_one_attached :image
 end
 
 #belongs_to_active_hash :category

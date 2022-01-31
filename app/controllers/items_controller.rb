@@ -12,10 +12,10 @@ class ItemsController < ApplicationController
     #Item.create(item_params)
   end
 
-  #private
+  private
 
-  #def items_params
-    #params.require(:item).permit(:name, :image, :text)
-  #end
+  def items_params
+    params.require(:item).permit(:name, :image, :text).merge(user_id: current_user.id)
+  end
 
 end
