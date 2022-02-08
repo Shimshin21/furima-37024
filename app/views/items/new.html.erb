@@ -2,13 +2,18 @@
   <header class="items-sell-header">
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
 
+
+
+    <script src="index.js"></script>
+
+
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model: @item, local: true do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%# render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
     <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <%# 商品画像 %>
@@ -99,6 +104,8 @@
     
     <%# /配送について %>
 
+
+
     <%# 販売価格 %>
     <div class="sell-price">
       <div class="weight-bold-text question-text">
@@ -129,6 +136,11 @@
       </div>
     </div>
     <%# /販売価格 %>
+
+
+
+
+
 
     <%# 注意書き %>
     <div class="caution">

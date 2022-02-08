@@ -10,6 +10,12 @@ class ItemsController < ApplicationController
   
   def create
     @item =Item.create(items_params)
+
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
@@ -24,5 +30,6 @@ end
 
 #if item.create(items_params)
   #redirect_to root_path
+#else
   #render : edit
 #end
