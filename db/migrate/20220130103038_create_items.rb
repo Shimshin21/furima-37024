@@ -17,10 +17,4 @@ class CreateItems < ActiveRecord::Migration[6.0]
 
     end
   end
-end
-
-#| category_id           | integer          | null: false,                   |
-#| item_condition_id     | integer          | null: false                    |
-#| shipping_cost_id      | integer          | null: false                    |
-#| prefecture_id         | integer          | null: false                    |
-#| shipping_days_id      | integer          | null: false                    |
+extend

@@ -18,13 +18,10 @@ class Item < ApplicationRecord
   validates :shipping_cost_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :shipping_days_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
 
-  has_one    :buyer
+  #has_one    :buyer
   belongs_to :user
 
   has_one_attached :image
-  validates :image, presence: true, unless: :was_attached?
+  validates :image, presence: true
 
-  def was_attached?
-    image.attached?
-  end
 end
