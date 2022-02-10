@@ -12,9 +12,7 @@ RSpec.describe Item, type: :model do
       end
     end
 
-
     context '商品出品できない場合' do
-
       it '商品画像が空では登録できない' do
         @item.image = nil
         @item.valid?
@@ -39,8 +37,21 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Category can't be blank"
       end
 
+
+      it 'カテゴリー選択のとき---を選択すると登録できない' do
+        @item.category_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Category can't be blank"
+      end
+
       it '商品の状態が空では登録できない' do
         @item.item_condition_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Item condition can't be blank"
+      end
+
+      it '商品の状態選択のとき---を選択すると登録できない' do
+        @item.item_condition_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include "Item condition can't be blank"
       end
@@ -51,11 +62,25 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Shipping cost can't be blank"
       end
 
+      it '配送料の負担選択のとき---を選択すると登録できない' do
+        @item.shipping_cost_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Shipping cost can't be blank"
+      end
+
       it '発送元の地域が空では登録できない' do
         @item.prefecture_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include "Prefecture can't be blank"
       end
+
+
+      it '発送元の地域選択のとき---を選択すると登録できない' do
+        @item.prefecture_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Prefecture can't be blank"
+      end
+
 
       it '発送までの日数が空では登録できない' do
         @item.shipping_days_id = ''
@@ -63,6 +88,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Shipping days can't be blank"
       end
 
+      it '発送までの日数選択のとき---を選択すると登録できない' do
+        @item.shipping_days_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Shipping days can't be blank"
+      end
+      
       it '価格が空では登録できない' do
         @item.price = ''
         @item.valid?
@@ -87,8 +118,14 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include 'Price must be less than or equal to 9999999'
       end
 
+
+      it 'userが紐づいていないと出品できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include 'User must exist'
+      end
+
+
     end
   end
 end
-
-
