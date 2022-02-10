@@ -97,7 +97,7 @@ RSpec.describe Item, type: :model do
       it '価格が空では登録できない' do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Price is invalid'
+        expect(@item.errors.full_messages).to include "Price can't be blank"
       end
 
       it '価格が全角数字では登録できない' do
