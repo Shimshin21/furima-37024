@@ -41,8 +41,6 @@
 * belongs_to_active_hash :prefecture
 * belongs_to_active_hash :shipping_days
 
-# gemファイルに  gem 'active_hash' と入力する
-
 
 ## buyers table
 | Column             | Type              | Options                          |
