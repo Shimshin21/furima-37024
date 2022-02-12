@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :items
     root to: 'items#index'
 
+    
+
 end
-
-
 
 #Rails.application.routes.draw do
   #devise_for :users
