@@ -26,9 +26,3 @@ class ItemsController < ApplicationController
                                  :shipping_cost_id, :shipping_days_id).merge(user_id: current_user.id)
   end
 end
-
-# if item.create(items_params)
-# redirect_to root_path
-# else
-# render : edit
-# end
