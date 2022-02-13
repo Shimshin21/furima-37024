@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    # @items = Item.oredr("created_at DESC")
+    @items = Item.all.order(created_at: :desc)
   end
 
   def new
@@ -26,9 +26,3 @@ class ItemsController < ApplicationController
                                  :shipping_cost_id, :shipping_days_id).merge(user_id: current_user.id)
   end
 end
-
-# if item.create(items_params)
-# redirect_to root_path
-# else
-# render : edit
-# end

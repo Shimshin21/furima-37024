@@ -37,7 +37,6 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Category can't be blank"
       end
 
-
       it 'カテゴリー選択のとき---を選択すると登録できない' do
         @item.category_id = '1'
         @item.valid?
@@ -74,13 +73,11 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Prefecture can't be blank"
       end
 
-
       it '発送元の地域選択のとき---を選択すると登録できない' do
         @item.prefecture_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include "Prefecture can't be blank"
       end
-
 
       it '発送までの日数が空では登録できない' do
         @item.shipping_days_id = ''
@@ -93,7 +90,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Shipping days can't be blank"
       end
-      
+
       it '価格が空では登録できない' do
         @item.price = ''
         @item.valid?
@@ -118,14 +115,11 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include 'Price must be less than or equal to 9999999'
       end
 
-
       it 'userが紐づいていないと出品できない' do
         @item.user = nil
         @item.valid?
         expect(@item.errors.full_messages).to include 'User must exist'
       end
-
-
     end
   end
 end
