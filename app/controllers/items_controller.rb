@@ -30,7 +30,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  
   def create
     @item = Item.new(items_params)
     if @item.save
@@ -39,17 +38,16 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     item = Item.find(params[:id])
-    item.destroy
-    redirect_to root_path
-
-    if current_user.id != @item.user_id
+    if current_user.id == item.user_id
+      item.destroy
       redirect_to root_path
+    else
+      render :index
     end
   end
-
 
   def set_item
     @item = Item.find(params[:id])
