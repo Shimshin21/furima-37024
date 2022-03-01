@@ -50,7 +50,7 @@
 | city               | string            | null: false                      |
 | address            | string            | null: false                      |
 | building_name      | string            |                                  |
-| tel_number         | string            | null: false                      |
+| tell_number        | string            | null: false                      |
 | shipping address   | references        | null: false, foreign_key: true   |
 
 ### Association
