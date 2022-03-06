@@ -11,6 +11,7 @@ class Item < ApplicationRecord
   belongs_to :item_condition
   belongs_to :shipping_cost
   belongs_to :shipping_days
+  has_one    :shipping_address
 
   validates :prefecture_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :category_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }

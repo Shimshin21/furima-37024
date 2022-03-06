@@ -11,10 +11,13 @@ class BuyerShippingAddress
 
     validates :token, presence: true
 
-    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :post_code, presence: true, format: {with: /\A\d{3}[-]\d{4}\z/, message: "post_code is invalid. Include hyphen(-)"}
     validates :city, presence: true
     validates :address, presence: true
-    validates :tell_number, presence: true
+    validates :tell_number, presence: true,  format: {with: /\A[0-9]+\z/, message: "tell_number is invalid."}
+    validates :tell_number, presence: true, format: {with: /\A\d{10,11}\z/, message: "tell_number of characters is invalid."}
+    
+    
   end
   validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
 

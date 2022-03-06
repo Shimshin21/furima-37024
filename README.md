@@ -33,7 +33,7 @@
 | shipping_days_id      | integer          | null: false                    |
 
 ### Association
-* has_one    :buyer
+* has_one    :shipping_address
 * belongs_to :user
 * belongs_to_active_hash :category
 * belongs_to_active_hash :item_condition
