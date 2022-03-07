@@ -1,7 +1,5 @@
 FactoryBot.define do
   factory :buyer_shipping_address do
-    user_id { 1 }
-    item_id { 1 }
 
     token { '1234567' }
 

@@ -1,9 +1,8 @@
 class BuyersController < ApplicationController
   before_action :authenticate_user!
-
+  before_action :item_info, only: [:index, :create]
   
   def index
-    item_info
     if @item.shipping_address.present? || current_user.id == @item.user_id
       redirect_to root_path
     else
@@ -13,7 +12,6 @@ class BuyersController < ApplicationController
 
   def create
     @buyer_shipping_address = BuyerShippingAddress.new(buyer_params)
-    item_info
     if @buyer_shipping_address.valid?
       pay_item
       @buyer_shipping_address.save
@@ -44,5 +42,3 @@ class BuyersController < ApplicationController
     )
   end
 end
-
-#   4242424242424242

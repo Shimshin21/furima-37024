@@ -14,12 +14,6 @@ Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
       exp_year: `20${formData.get("buyer_shipping_address[exp_year]")}`,          /*order[exp_year]*/
     };
 
-    console.log(card);
-
-
-
-
-
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
         const token = response.id;

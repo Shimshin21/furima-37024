@@ -1,18 +1,25 @@
 require 'rails_helper'
-
 RSpec.describe BuyerShippingAddress, type: :model do
+
   before do
-    @BuyerShippingAddress = FactoryBot.build(:buyer_shipping_address)
+    item = '1'
+    user = '1'
+    @BuyerShippingAddress = FactoryBot.build(:buyer_shipping_address, item_id: 1 , user_id: 1)
+    sleep 1
   end
 
   describe '購入情報の保存' do
     context '内容に問題ない場合' do
       it 'すべての値が正しく入力されていれば保存できること' do
+        @BuyerShippingAddress.user_id = '1'
+        @BuyerShippingAddress.item_id = '1'
         expect(@BuyerShippingAddress).to be_valid
       end
 
       it 'building_nameが空でも保存できること' do
         @BuyerShippingAddress.building_name = ''
+        @BuyerShippingAddress.user_id = '1'
+        @BuyerShippingAddress.item_id = '1'
         expect(@BuyerShippingAddress).to be_valid
       end
     end
@@ -91,13 +98,13 @@ RSpec.describe BuyerShippingAddress, type: :model do
       end
 
       it 'user_idが紐づいていないと保存できない' do
-        @BuyerShippingAddress.user_id = nil
+        @BuyerShippingAddress.user_id = ''
         @BuyerShippingAddress.valid?
         expect(@BuyerShippingAddress.errors.full_messages).to include "User can't be blank"
       end
 
       it 'item_idが紐づいていないと保存できない' do
-        @BuyerShippingAddress.item_id = nil
+        @BuyerShippingAddress.item_id = ''
         @BuyerShippingAddress.valid?
         expect(@BuyerShippingAddress.errors.full_messages).to include "Item can't be blank"
       end
