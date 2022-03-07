@@ -1,9 +1,7 @@
 class BuyersController < ApplicationController
   before_action :authenticate_user!
 
-  # indexにデータが購入されていたら、トップページに遷移させる
-  # ログイン状態の場合でも、自身が出品していない売却済み商品の商品購入ページへ遷移しようとすると、トップページに遷移すること。
-
+  
   def index
     item_info
     if @item.shipping_address.present? || current_user.id == @item.user_id
