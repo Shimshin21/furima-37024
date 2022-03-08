@@ -14,9 +14,9 @@ class BuyerShippingAddress
     validates :city
     validates :address
     validates :tell_number, format: { with: /\A[0-9]+\z/ }
-    validates :tell_number, format: { with: /\A\d{10,11}\z/, message: 'of characters is invalid.' }
   end
-  validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
+    validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
+    validates :tell_number, format: { with: /\A\d{10,11}\z/, message: 'of characters is invalid.' }
 
   def save
     shipping_address = ShippingAddress.create(item_id: item_id, user_id: user_id)
