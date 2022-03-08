@@ -33,7 +33,7 @@
 | shipping_days_id      | integer          | null: false                    |
 
 ### Association
-* has_one    :buyer
+* has_one    :shipping_address
 * belongs_to :user
 * belongs_to_active_hash :category
 * belongs_to_active_hash :item_condition
@@ -50,7 +50,7 @@
 | city               | string            | null: false                      |
 | address            | string            | null: false                      |
 | building_name      | string            |                                  |
-| tel_number         | string            | null: false                      |
+| tell_number        | string            | null: false                      |
 | shipping address   | references        | null: false, foreign_key: true   |
 
 ### Association
