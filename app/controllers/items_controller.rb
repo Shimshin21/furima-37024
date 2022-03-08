@@ -14,9 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if current_user.id != @item.user_id || @item.shipping_address.present?
-    redirect_to root_path
-    end 
+    redirect_to root_path if current_user.id != @item.user_id || @item.shipping_address.present?
   end
 
   def update
@@ -32,7 +30,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render :new
+      render :edit
     end
   end
 

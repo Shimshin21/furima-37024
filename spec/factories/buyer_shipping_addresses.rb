@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :buyer_shipping_address do
-
     token { '1234567' }
 
     post_code { '123-4567' }

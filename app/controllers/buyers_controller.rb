@@ -1,7 +1,7 @@
 class BuyersController < ApplicationController
   before_action :authenticate_user!
   before_action :item_info, only: [:index, :create]
-  
+
   def index
     if @item.shipping_address.present? || current_user.id == @item.user_id
       redirect_to root_path

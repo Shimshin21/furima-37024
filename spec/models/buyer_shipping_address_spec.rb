@@ -1,16 +1,13 @@
 require 'rails_helper'
 RSpec.describe BuyerShippingAddress, type: :model do
+  describe '購入情報の保存' do
+    before do
+      item = FactoryBot.create(:item)
+      user = FactoryBot.create(:user)
+      @BuyerShippingAddress = FactoryBot.build(:buyer_shipping_address, item_id: item.id, user_id: user.id)
+      sleep 1
+    end
 
-
-describe '購入情報の保存' do
-  before do
-    item = FactoryBot.create(:item)
-    user = FactoryBot.create(:user)
-    @BuyerShippingAddress = FactoryBot.build(:buyer_shipping_address, item_id: item.id, user_id: user.id)
-    sleep 1
-  end
-
-  
     context '内容に問題ない場合' do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@BuyerShippingAddress).to be_valid
