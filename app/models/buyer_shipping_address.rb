@@ -23,17 +23,3 @@ class BuyerShippingAddress
                  tell_number: tell_number, shipping_address_id: shipping_address.id)
   end
 end
-
-
-shimpei
-19881111
-
-
-test10@test
-qwe123
-
-
-test20@test
-qwe123
-
-
