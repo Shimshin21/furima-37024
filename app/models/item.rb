@@ -20,9 +20,16 @@ class Item < ApplicationRecord
   validates :shipping_days_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
 
   belongs_to :user
-
   has_one :buyer
-
   has_one_attached :image
   validates :image, presence: true
+
+  def self.search(search)
+    if search != ""
+      Item.where( 'name LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
+
 end
